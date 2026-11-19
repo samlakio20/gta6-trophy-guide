@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI (55 trophies)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5</p>
+    <h1>Leonida Trophy Guide</h1>
+    <p class="subtitle">Every one of the 55 trophies — official names, descriptions and grades, a cited guide for each, a roadmap to the platinum, and a tracker that remembers your progress.</p>
+    <div class="progress-wrap" aria-label="Progress to platinum">
+      <div class="progress-line"><span id="progressText">0 of 55 earned</span><span id="progressPct">0%</span></div>
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <p class="progress-detail" id="progressDetail">Platinum 0/1 &middot; Gold 0/2 &middot; Silver 0/6 &middot; Bronze 0/46</p>
+    </div>
+  </div>
+</header>
+
+<nav class="controls" aria-label="Tracker controls">
+  <div class="control-row">
+    <label class="search-label">Search <input id="search" type="search" placeholder="Trophy, mission, keyword" autocomplete="off"></label>
+    <label class="grade-label">Grade
+      <select id="gradeFilter">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label class="check-label"><input id="spoilerToggle" type="checkbox"> Spoiler-free: hide hidden trophies</label>
+    <label class="check-label"><input id="earnedOnly" type="checkbox"> Earned only</label>
+  </div>
+  <div class="control-row">
+    <div class="kind-filters" id="kindFilters" role="group" aria-label="Filter by kind">
+      <button type="button" data-kind="all" class="kind-btn active">All kinds</button>
+      <button type="button" data-kind="story" class="kind-btn">Story</button>
+      <button type="button" data-kind="missable" class="kind-btn">Missable</button>
+      <button type="button" data-kind="collectibles" class="kind-btn">Collectibles</button>
+      <button type="button" data-kind="activities" class="kind-btn">Activities</button>
+      <button type="button" data-kind="online" class="kind-btn">Online</button>
+    </div>
+    <div class="data-buttons">
+      <button id="expandAll" type="button">Show all guides</button>
+      <button id="collapseAll" type="button">Hide all guides</button>
+      <button id="exportBtn" type="button">Export progress</button>
+      <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+      <button id="resetBtn" type="button">Reset progress</button>
+    </div>
+  </div>
+  <p class="controls-note" id="filterNote"></p>
+</nav>
+
+<main>
+  <section id="checklist" aria-labelledby="checklistHeading">
+    <h2 id="checklistHeading">The 55 trophies</h2>
+    <p class="checklist-intro">Tick a trophy off and it stays ticked — progress is saved in your browser. Open a trophy to read its guide and its sources.</p>
+    <p class="empty-note" id="emptyNote" hidden>No trophies match these filters.</p>
+    <div id="trophyList"></div>
+  </section>
+
+  <section id="roadmap" aria-labelledby="roadmapHeading">
+    <h2 id="roadmapHeading">Roadmap to the platinum</h2>
+    <p class="roadmap-intro">About <strong>200 hours</strong>, one playthrough, difficulty <strong>4/10</strong> (PowerPyx). No online trophies, no difficulty settings, no mission replay — but free-roam stays open after the story, so almost everything can be cleaned up afterwards.</p>
+    <ol class="roadmap-steps">
+      <li class="roadmap-step">
+        <h3><span class="step-no">1</span> Play the story <span class="step-time">60–80 hours</span></h3>
+        <p>Finish the 5 chapters and take optional missions as they appear. Scan vehicles and study animals as you go — progress already counts toward the 100% checklist. Do the Chapter 1 balcony meditation (see the missable warning below).</p>
+        <p class="step-trophies" id="stepStoryCount"></p>
+      </li>
+      <li class="roadmap-step">
+        <h3><span class="step-no">2</span> The 100% checklist <span class="step-time">~100 hours</span></h3>
+        <p>After the credits the checklist opens under Progress &gt; Stats &gt; 100% Completion. It is lenient — closer to 60% true completion — but robberies, shooting ranges, drone races and Bret's quests need everything. You need any 70 of the 80 challenges.</p>
+        <p class="step-trophies" id="stepChecklistCount"></p>
+      </li>
+      <li class="roadmap-step">
+        <h3><span class="step-no">3</span> Strangers &amp; Freaks and cleanup <span class="step-time">~10 hours</span></h3>
+        <p>Finish the 8 stranger strands that count, the character questlines, and whatever one-off trophies are left. Most of these pop on the way through steps 1 and 2.</p>
+        <p class="step-trophies" id="stepCleanupCount"></p>
+      </li>
+      <li class="roadmap-step platinum-step">
+        <h3><span class="step-no">4</span> Vice Got a Price! <span class="step-time">the platinum</span></h3>
+        <p>Earn every other trophy and the platinum is yours. No multiplayer, no DLC required.</p>
+      </li>
+    </ol>
+    <div class="warnings">
+      <div class="warning missable-warning">
+        <h3>⚠ The one missable trophy</h3>
+        <p><strong>Positive Mental Attitude</strong> is the only trophy PowerPyx flags as potentially missable: during Chapter 1, after the mission Down to Earth, Lucia talks about meditating in the kitchen in the morning and walks out to the balcony at Jason's house. Follow her and accept. It disappears after Chapter 1, and it is still unconfirmed whether it is required — do it to be safe.</p>
+      </div>
+      <div class="warning">
+        <h3>Save often, never cheat on this run</h3>
+        <p>There is no mission replay, so keep a manual save at the start and end of each chapter (15 manual slots). Using a cheat disables trophies and saving. Optional missions can disappear over time, but PowerPyx notes there are far more than the 100 the checklist needs, so a missed one never locks the platinum.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="aboutHeading">
+    <h2 id="aboutHeading">About this guide</h2>
+    <p>Guides are written in our own words for this guide. Every specific location, count or step is cited to the community guide it comes from, beside the trophy it belongs to — a cited guide beats an uncited one, however detailed. Two trophies (Bad Luck, I Guess and Ten Pin) have no confirmed trigger yet; both are marked as unconfirmed rather than guessed at.</p>
+    <h3>Sources</h3>
+    <ul class="source-list">
+      <li><a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/">PowerPyx — GTA 6 (Grand Theft Auto VI) Trophy Guide &amp; Roadmap</a> — the roadmap, the missable warning, the counts and the per-trophy methods.</li>
+      <li><a href="https://www.gtabase.com/articles/gta-6/gta-6-achievements-trophies-list-ps5-xbox-series">GTABase — GTA 6 Trophy Guide &amp; Achievements List</a> — the full list with grades, Gamerscore and unlock tips.</li>
+      <li><a href="https://www.planetgta6.com/en/gta-6-trophies/">PlanetGTA6 — GTA 6 Trophies: All 55 trophies and Xbox achievements</a> — the official names and descriptions as shown on PlayStation Network, taken from Exophase and cross-checked with PSNProfiles and TrueAchievements, including which 28 trophies are hidden.</li>
+    </ul>
+    <p class="disclaimer">Not affiliated with Rockstar Games, Sony or PlayStation. Grand Theft Auto and GTA are trademarks of Take-Two Interactive. This guide works offline: it loads no file from the network and makes no network request.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Leonida Trophy Guide — an offline guide and tracker for the 55 PlayStation 5 trophies of Grand Theft Auto VI.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
